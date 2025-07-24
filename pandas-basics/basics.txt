@@ -1,0 +1,21 @@
+pandas - library specialized in  data manipulation and analysis
+- used to read excel sheets or SQL tables
+- used to filter data
+
+
+Series
+
+| Use Case                  | Why Series is Useful      |
+| ------------------------- | ------------------------- |
+| Easy math with labels     | Vectorized, readable      |
+| Lookup by label or index  | Like a dict + list        |
+| Missing data              | Handles `NaN` smartly     |
+| Columns in a DataFrame    | All columns are Series    |
+| Apply functions easily    | `.mean()`, `.max()`, etc. |
+| Create clean data quickly | From lists or dicts       |
+
+! can also store functions !
+
+
+Data Frames
+
