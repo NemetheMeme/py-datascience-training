@@ -63,8 +63,11 @@ print(ranged_list)
 # important - LIST COMPREHENSION
 #[ do this for element in list] and append each element to a list
 
-comprehensed_list = [x*3 for x in [1,2,3,4]]
-print("list_comprehension: ", comprehensed_list)
+comprehended_list = [x * 3 for x in [1, 2, 3, 4]]
+print("list_comprehension: ", comprehended_list)
+
+# or [appendedElementOrWhatItReturns for element in elements if condition]
+##odd_numbers = [number for number in numbers if number % 2 == 1]
 
 # functions
 def func(param):
