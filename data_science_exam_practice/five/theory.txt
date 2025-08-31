@@ -1,0 +1,81 @@
+Inferential Statistics
+- allows us to assume conclusions over a whole population based on a data subset
+- the base idea is to formulate a hypothesis and to verify it through statistical methods
+
+- H0 null hypothesis -> usually represents the opposite of what we want to demonstrate/prove
+- H1/Halpha alternative hypothesis -> usually represents what we want to prove
+
+Steps:
+    1. define the null and alternative hypothesises
+    2. define a testing plan
+        - choose the right statistic plan taking into the account the defined hypothesis and the type of the interested variables
+    3. results interpretation
+        - define a threshold
+        - interpreting the result to reject or not the null hypothesis
+
+
+Statistic tests
+    - used to approve a deny a hypothesis
+    - use the scipy.stats library of python
+
+Classification:
+    1. one variable
+        - T/ Z tests : determine if there is a significant difference between the mean of the noticed distribution and a theoretical mean of the studied variable
+
+    2. two variables
+        - Pearson correlation - determines an association between two variables
+        - 2 Sample T-test - compares the noticed mean of 2 independent variables
+            - example: is there any significant difference between Brasov and Cluj salaries of IT employees?
+        - Paired T-test - compares the noticed mean of two dependent variables
+            - example: is there any significant difference between salaries of the students before and after master's degree?
+
+        - Chi-squared test (X^2) - compares the dependence between two categorical variables
+
+Hypothesis testing
+
+---------2 sample Student's T-Test - comparing continue variables -
+scipu.stats.ttest_ind(x,y)
+
+Let's assume we have 2 medicines to control the glucose level for diabetic patients
+The purpose is to figure out what is the most efficient medicine among these 2
+In a clinical study we have 30 patients, in which each 15 of them took one of the 2 medicines A and B
+- calculate the distribution mean - we assume that the A medicine has a higher visual distribution, does this mean it is better?
+We want to demonstrate that if we would run multiple tests/ redo the experiment for a much higher number of tries, the patients who took medicine A would still have a better response
+
+So we define the hypothesises:
+    H0, the 2 data sets(glucose measurements) belong to the same probability distribution
+    H1, the 2 data sets do NOT belong to the same probability distribution/ belong to different probability distributions
+    or better:
+    H0: there is no difference or association
+the higher the T value,  the higher is the difference between the 2 distributions
+if the p-value is low, we could reject the null hypothesis
+
+Usually these tests must be applied over 2 independent values
+tvalue = calculated test value based on the bata, measures how big the mean difference is compared to the variance of the data
+high t_stat(either negative or positive) - the difference is too big than we were expecting -> more probably to reject the null hypothesis
+
+pvalue  - represents the level of real semnification of the noticed difference
+
+
+independent t-test
+- when we have two different groups of participants but the same criteria they are on:
+ as in the example provided above or: the math scores between girls and boys (2 different groups, same value measured)
+
+ In statistics -> independent means that a group's observations don't have any  relationship with the other group
+  they don't depend on a category -> just that the groups are different
+
+---------- Chi-squared test - comparing the categorical variables
+scipy.stats.chi2_contingency(contingency_matrix)
+- used to analyze the asociation between 2 categorical variables
+- let's say that we have to use a continue value set , we have to discretize it
+create the contingency table
+apply
+ chi2, p_chi2, dof, expected = chi2_contingency(table_contingent)
+
+ chi2 ->  calculates statistics -> measures how much the real data differ from what null hypothesis expected
+ p_chi2 -> probability to obtain a chi value at least of the same high value as the one observed, if the null ypothesis would be true
+ use this to verify to deny or agree with the null hypothesis
+ dof -> degrees of freedom -> represents the number of independent values that can vary in the contingent table
+ expected -> a table with expected frequencies, if the variables would be independent
+ to discretize the continue values: min(value//10,9
+
